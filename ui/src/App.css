@@ -1,0 +1,28 @@
+html, body {
+    /* Make the body to be as tall as browser window */
+    height: 100%;
+}
+
+body {
+    padding: 20px;
+}
+
+#root, .app {
+    height: 100%;
+}
+
+.hero-head {
+    height: 3rem;
+    padding: 0 20px;
+}
+
+.hero-body {
+    height: calc(100% - 3rem);
+}
+
+.clone {
+    background: rgba(41, 182, 61, 0.1);
+    position: absolute;
+    width: 100% !important;
+    left: 0 !important;
+}

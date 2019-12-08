@@ -1,0 +1,46 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.2.2.RELEASE")
+    }
+}
+
+plugins {
+    id 'java'
+    id 'antlr'
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+sourceSets {
+    main.java.srcDirs += "${project.buildDir}/generated-src/antlr/main"
+}
+
+generateGrammarSource {
+    maxHeapSize = "64m"
+    arguments += ["-visitor", "-long-messages", "-package", "org.iteso.duplicated.antlr"]
+}
+
+dependencies {
+    annotationProcessor 'org.projectlombok:lombok'
+    implementation 'org.projectlombok:lombok'
+    implementation 'org.antlr:antlr4:4.7.2'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    antlr 'org.antlr:antlr4:4.7.2'
+
+    // Use JUnit test framework
+    testImplementation 'junit:junit:4.12'
+}
