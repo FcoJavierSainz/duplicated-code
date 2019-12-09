@@ -2,9 +2,9 @@
 Master's program ADA projet 
 ## how to run
 ### Prerequisites
-1.- Java
-1.- Gradle
-1.- Node & NPM / yarn
+1. Java
+1. Gradle
+1. Node & NPM / yarn
 
 Run Service
 ```bash
